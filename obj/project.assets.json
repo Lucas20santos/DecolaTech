@@ -8,19 +8,19 @@
     "net5.0": []
   },
   "packageFolders": {
-    "/home/lucas/.nuget/packages/": {}
+    "/home/luca/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/lucas/Documentos/Github/DecolaTech/DecolaTech.csproj",
+      "projectUniqueName": "/home/luca/Documentos/Github/DecolaTech/DecolaTech.csproj",
       "projectName": "DecolaTech",
-      "projectPath": "/home/lucas/Documentos/Github/DecolaTech/DecolaTech.csproj",
-      "packagesPath": "/home/lucas/.nuget/packages/",
-      "outputPath": "/home/lucas/Documentos/Github/DecolaTech/obj/",
+      "projectPath": "/home/luca/Documentos/Github/DecolaTech/DecolaTech.csproj",
+      "packagesPath": "/home/luca/.nuget/packages/",
+      "outputPath": "/home/luca/Documentos/Github/DecolaTech/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/lucas/.nuget/NuGet/NuGet.Config"
+        "/home/luca/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
