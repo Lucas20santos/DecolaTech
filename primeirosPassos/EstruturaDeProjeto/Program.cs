@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace estruturadeprograma
+namespace EstruturaDeProjeto
 {
     class Program
     {
@@ -15,8 +15,6 @@ namespace estruturadeprograma
             Console.WriteLine(s.Desempilha());
             Console.WriteLine(s.Desempilha());
             
-
-
         }
     }
 }

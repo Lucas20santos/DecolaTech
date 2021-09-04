@@ -1,6 +1,6 @@
 using System;
 
-namespace estruturadeprograma
+namespace EstruturaDeProjeto
 {
     public class Pilha
     {
