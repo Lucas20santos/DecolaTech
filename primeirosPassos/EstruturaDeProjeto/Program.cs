@@ -14,6 +14,7 @@ namespace EstruturaDeProjeto
             Console.WriteLine(s.Desempilha());
             Console.WriteLine(s.Desempilha());
             Console.WriteLine(s.Desempilha());
+            /*Console.WriteLine(s.Desempilha()); */
             
         }
     }
