@@ -46,3 +46,30 @@ Ações de um programa são expressas usando instruções
 - throw
 - try... catch... finally
 - using
+
+
+## Arrays
+
+Um **array** e uma estrutura de dados que contem um numero X de **elementos**, todos do mesmo **tipo**, que sao acessados atraves de **indices** compuados.
+
+Arrays sao tipos de referencia e a declaraçao de uma variavel array simplesmente reserva espaço para uma referencia de uma instancia de array.
+
+Ao criar um array e especificado o **tamanho** da nova instancia, que e fixo durante todo o tempo de vida da instancia
+
+Os indices dos elementos de um array variam de **0** a **comprimento do array - 1**
+
+```.
+int[] a = new int[10]; // declarando o array de inteiros de tamanho 10, os indices variam de 0 a 9
+
+for(int i = 0; i < a.Length; i++)
+{
+	a[i] = i * i;
+}
+
+```
+
+
+
+
+
+
