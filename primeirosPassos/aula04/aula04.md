@@ -58,17 +58,27 @@ Ao criar um array e especificado o **tamanho** da nova instancia, que e fixo dur
 
 Os indices dos elementos de um array variam de **0** a **comprimento do array - 1**
 
+### Arrays Unidimensional
+
 ```.
 int[] a = new int[10]; // declarando o array de inteiros de tamanho 10, os indices variam de 0 a 9
 
 for(int i = 0; i < a.Length; i++)
 {
 	a[i] = i * i;
+	Console.WriteLine($"a[{i}] = {a[i]}");
 }
 
 ```
 
+### Arrays MultiDimensional
 
+```.
+int[,] a2 = new int[10, 5]
+int[,,] a3 = new int[10, 5, 2]
+
+
+```
 
 
 
