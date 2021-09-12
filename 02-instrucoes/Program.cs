@@ -156,17 +156,16 @@ namespace _02_instrucoes
                 return x / y;
             }
             double x, y;
+            x = double.Parse(args[0]);
+            y = double.Parse(args[1]);
             
             try
             {
                 if(args.Length != 2)
                 {
                     throw new InvalidOperationException("Informe 2 numeros");
-
-                     x = double.Parse(args[0]);
-                     y = double.Parse(args[1]);
-                    Console.WriteLine(Dividir(x, y));
                 }
+                Console.WriteLine(Dividir(x, y));
             }
             catch(InvalidOperationException e)
             {
