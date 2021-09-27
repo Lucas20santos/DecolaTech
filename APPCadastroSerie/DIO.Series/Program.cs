@@ -18,7 +18,7 @@ namespace DIO.Series
                 switch (opcaoUsuario)
                 {
                     case "1":
-                        ListarSeries();
+                        ListarCarros();
                         break;
                     case "2":
                         InserirSerie();
@@ -71,9 +71,9 @@ namespace DIO.Series
             Console.Write("Digite o id da série: ");
             int indiceSerie = int.Parse(Console.ReadLine());
 
-            foreach (var i in Enum.GetValues(typeof(Genero)))
+            foreach (var i in Enum.GetValues(typeof(Carros)))
             {
-                Console.WriteLine("{0} - {1}", i, Enum.GetName(typeof(Genero), i));
+                Console.WriteLine("{0} - {1}", i, Enum.GetName(typeof(Carros), 1));
             }
 
             Console.Write("Digite o genero entre as opções acime: ");
@@ -89,7 +89,7 @@ namespace DIO.Series
             string entradaDescricao = Console.ReadLine();
 
             Series atualizaSerie = new Series(id: indiceSerie,
-                                              genero: (Genero)entradaGenero,
+                                              carros: (Carros)entradaGenero,
                                               titulo: entradaTitulo,
                                               ano: entradaAno,
                                               descricao: entradaDescricao);
@@ -100,12 +100,12 @@ namespace DIO.Series
         private static void InserirSerie()
         {
             
-            foreach (var i in Enum.GetValues(typeof(Genero)))
+            foreach (var i in Enum.GetValues(typeof(Carros)))
             {
-                Console.WriteLine("{0} - {1}", i, Enum.GetName(typeof(Genero), i));
+                Console.WriteLine("{0} - {1}", i, Enum.GetName(typeof(Carros), i));
             }
             Console.Write("Digite o genero entre as opções acima: ");
-            int entradaGenero = int.Parse(Console.ReadLine());
+            int entradaCarro = int.Parse(Console.ReadLine());
 
             Console.Write("Digite o Título da Série: ");
             string entradaTitulo = Console.ReadLine();
@@ -116,37 +116,22 @@ namespace DIO.Series
             Console.Write("Digite a Descrição da Seŕie: ");
             string entradaDescricao = Console.ReadLine();
 
-            Series novaSerie = new Series(id: repositorio.ProximoId(), 
-                                          genero: (Genero)entradaGenero, 
-                                          titulo: entradaTitulo, 
-                                          descricao: entradaDescricao, 
-                                          ano: entradaAno);
+            Series novaSerie = new Series(id: repositorio.ProximoId(), carros: (Carros)entradaCarro, 
+                                          titulo: entradaTitulo, descricao: entradaDescricao, ano: entradaAno);
             
             repositorio.Insere(novaSerie);
         
             // INSERIR NO BANCO DE DADOS
-            banco.insereNoBanco(id: repositorio.ProximoId(), 
-                                genero: (Genero)entradaGenero, 
-                                titulo: entradaTitulo, 
-                                descricao: entradaDescricao, 
-                                ano: entradaAno);
+            banco.insereNoBanco(id: repositorio.ProximoId(), carros: (Carros)entradaCarro,
+                                descricao: entradaDescricao);
         
         }
 
-        private static void ListarSeries()
+        private static void ListarCarros()
         {
-            Console.WriteLine("Listar Séries");
+            Console.WriteLine("Listar Carros");
 
-            var lista = repositorio.Lista();
-
-            if(lista.Count == 0)
-            {
-                Console.WriteLine("Nenhuma série cadastrada!");
-            }
-            foreach (var serie in lista)
-            {
-                Console.WriteLine("ID {0} - {1}", serie.retornaId(), serie.retornaTitulo());   
-            }
+            banco.listarCarros();
         }
 
         private static string ObterOpcaoUsuario()

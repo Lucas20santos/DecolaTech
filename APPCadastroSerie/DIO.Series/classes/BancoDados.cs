@@ -1,7 +1,5 @@
 using System;
 using System.IO;
-using System.Text;
-
 
 namespace DIO.Series
 {
@@ -11,8 +9,7 @@ namespace DIO.Series
         private string nomeArquivo { get; set; }
         private string caminhoArquivo { get; set; }
         private int id { get; set; }
-
-        public Genero Genero { get; set; }
+        public Modelos Carros { get; set; }
         public string Titulo { get; set; }
         public string Descricao { get; set; }
         public int Ano { get; set; }
@@ -41,25 +38,32 @@ namespace DIO.Series
             return file;
         }
 
-        public void insereNoBanco(int id, Genero genero, string titulo, string descricao, int ano)
+        public void insereNoBanco(int id, Modelos carros, string descricao)
         {
             this.id = id;
-            this.Genero = genero;
-            this.Titulo = titulo;
+            this.Carros = carros;
             this.Descricao = descricao;
-            this.Ano = ano;
             this.Excluido = true;
 
             StreamWriter file = abrirArquivo();
-        
-            file.WriteLine("filme: " + this.id);
-            file.WriteLine("Genero: " + this.Genero);
-            file.WriteLine("Título: " + this.Titulo);
-            file.WriteLine("Ano: " + this.Ano);
+
+            file.WriteLine("------------------------------------");
+            file.WriteLine("Id: " + this.id);
+            file.WriteLine("Genero: " + this.Carros);
             file.WriteLine("Descrição: " + this.Descricao);
             file.WriteLine("Disponível: " + this.Excluido);
-            file.WriteLine("------------------------------------");
             file.Close();
+        }
+
+        public void listarCarros()
+        {
+            StreamReader file;
+            file = File.OpenText(this.caminhoArquivo);
+            while(file.EndOfStream != true)
+            {
+                string linha = file.ReadLine();
+                Console.WriteLine(linha);
+            }
         }
     }
 }
