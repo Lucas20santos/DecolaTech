@@ -1,13 +1,17 @@
 ﻿using System;
+using System.IO;
 
 namespace DIO.Series
 {
     class Program
     {
         static SerieRepositorio repositorio = new SerieRepositorio();
+        static BancoDados banco = new BancoDados(nomeArquivo: "bancoDados.txt",
+                                                caminhoArquivo: "/home/luca/Documentos/Github/DecolaTech/APPCadastroSerie/DIO.Series/arquivo/");
         static void Main(string[] args)
         {
             string opcaoUsuario = ObterOpcaoUsuario();
+
 
             while(opcaoUsuario != "X")
             {
@@ -95,6 +99,7 @@ namespace DIO.Series
 
         private static void InserirSerie()
         {
+            
             foreach (var i in Enum.GetValues(typeof(Genero)))
             {
                 Console.WriteLine("{0} - {1}", i, Enum.GetName(typeof(Genero), i));
@@ -118,6 +123,14 @@ namespace DIO.Series
                                           ano: entradaAno);
             
             repositorio.Insere(novaSerie);
+        
+            // INSERIR NO BANCO DE DADOS
+            banco.insereNoBanco(id: repositorio.ProximoId(), 
+                                genero: (Genero)entradaGenero, 
+                                titulo: entradaTitulo, 
+                                descricao: entradaDescricao, 
+                                ano: entradaAno);
+        
         }
 
         private static void ListarSeries()
