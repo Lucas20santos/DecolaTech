@@ -7,15 +7,18 @@ namespace DIO.Series
         // Atributos
         private Modelos modelos { get; set; }
         private string Descricao { get; set; }
+        private float preco {get; set; }
         private int Ano { get; set; }
         private bool Excluido { get; set; }
         
         // método construtor
-        public Carros(int id, Modelos carros, string descricao)
+        public Carros(int id, Modelos carros, string descricao, int ano, float preco)
         {
-            this.id = id;
+            this.Id = id;
             this.modelos = carros;
             this.Descricao = descricao;
+            this.Ano = ano;
+            this.preco = preco;
             this.Excluido = false;
         }
 
@@ -23,8 +26,10 @@ namespace DIO.Series
         {
             string retorno = "";
             retorno += "Modelo: " + this.modelos + Environment.NewLine;
-            retorno += "Descrição: " + this.Descricao + Environment.NewLine;
+            retorno += "Preço: " + this.preco + Environment.NewLine;
+            retorno += "Ano: " + this.Ano + Environment.NewLine;
             retorno += "excluído: " + this.Excluido + Environment.NewLine;
+            retorno += "Descrição: " + this.Descricao + Environment.NewLine;
             return retorno;
 
         }
@@ -36,13 +41,12 @@ namespace DIO.Series
 
         public int retornaId()
         {
-            return this.id;
+            return this.Id;
         }
 
         public void Excluir()
         {
             this.Excluido = true;
-        }
-        
+        }   
     }
 }
