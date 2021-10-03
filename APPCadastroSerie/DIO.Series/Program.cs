@@ -6,8 +6,7 @@ namespace DIO.Series
     class Program
     {
         static SerieRepositorio repositorio = new SerieRepositorio();
-        static BancoDados banco = new BancoDados(nomeArquivo: "bancoDados.txt",
-                                                caminhoArquivo: "/home/luca/Documentos/Github/DecolaTech/APPCadastroSerie/DIO.Series/arquivo/");
+        static BancoDados banco = new BancoDados(nomeArquivo: "bancoDados.txt", caminhoArquivo: "/home/luca/Documentos/Github/DecolaTech/APPCadastroSerie/DIO.Series/arquivo/");
         static void Main(string[] args)
         {
             string opcaoUsuario = ObterOpcaoUsuario();
@@ -21,16 +20,16 @@ namespace DIO.Series
                         ListarCarros();
                         break;
                     case "2":
-                        InserirSerie();
+                        InserirCarros();
                         break;
                     case "3":
-                        AtualizarSerie();
+                        AtualizarCarros();
                         break;
                     case "4":
-                        ExcluirSerie();
+                        ExcluirCarros();
                         break;
                     case "5":
-                        VisualizarSerie();
+                        VisualizarCarros();
                         break;
                     case "C":
                         Console.Clear();
@@ -48,9 +47,9 @@ namespace DIO.Series
 
         }
 
-        private static void VisualizarSerie()
+        private static void VisualizarCarros()
         {
-            Console.Write("Digite o id da série: ");
+            Console.Write("Digite o id do Carros: ");
             int indiceSerie = int.Parse(Console.ReadLine());
 
             var serie = repositorio.RetornaPorId(indiceSerie);
@@ -58,7 +57,7 @@ namespace DIO.Series
             Console.WriteLine(serie);
         }
 
-        private static void ExcluirSerie()
+        private static void ExcluirCarros()
         {
             Console.Write("Digite o id da série: ");
             int indiceSerie = int.Parse(Console.ReadLine());
@@ -66,21 +65,21 @@ namespace DIO.Series
             repositorio.Exclui(indiceSerie);
         }
 
-        private static void AtualizarSerie()
+        private static void AtualizarCarros()
         {
             Console.Write("Digite o id da série: ");
-            int indiceSerie = int.Parse(Console.ReadLine());
+            int indiceCarro = int.Parse(Console.ReadLine());
 
             foreach (var i in Enum.GetValues(typeof(Carros)))
             {
                 Console.WriteLine("{0} - {1}", i, Enum.GetName(typeof(Carros), 1));
             }
 
-            Console.Write("Digite o genero entre as opções acime: ");
-            int entradaGenero = int.Parse(Console.ReadLine());
+            Console.Write("Digite o modelo entre as opções acime: ");
+            int entradaModelo = int.Parse(Console.ReadLine());
 
-            Console.Write("Digite o título da Série: ");
-            string entradaTitulo = Console.ReadLine();
+            Console.Write("Digite o preço do carro: ");
+            float precoCarro = float.Parse(Console.ReadLine());
 
             Console.Write("Digite o Ano de Início da Série: ");
             int entradaAno = int.Parse(Console.ReadLine());
@@ -88,41 +87,44 @@ namespace DIO.Series
             Console.Write("Digite a Descrição da Série: ");
             string entradaDescricao = Console.ReadLine();
 
-            Series atualizaSerie = new Series(id: indiceSerie,
-                                              carros: (Carros)entradaGenero,
-                                              titulo: entradaTitulo,
+            Carros atualizaCarro = new Carros(id: indiceCarro,
+                                              carros: (Modelos)entradaModelo,
+                                              preco: precoCarro,
                                               ano: entradaAno,
                                               descricao: entradaDescricao);
         
-            repositorio.Atualiza(indiceSerie, atualizaSerie);
+            repositorio.Atualiza(indiceCarro, atualizaCarro);
         }
 
-        private static void InserirSerie()
+        private static void InserirCarros()
         {
             
             foreach (var i in Enum.GetValues(typeof(Carros)))
             {
                 Console.WriteLine("{0} - {1}", i, Enum.GetName(typeof(Carros), i));
             }
-            Console.Write("Digite o genero entre as opções acima: ");
-            int entradaCarro = int.Parse(Console.ReadLine());
+            Console.Write("Digite o modelo entre as opções acime: ");
+            int entradaModelo = int.Parse(Console.ReadLine());
 
-            Console.Write("Digite o Título da Série: ");
-            string entradaTitulo = Console.ReadLine();
+            Console.Write("Digite o preço do carro: ");
+            float precoCarro = float.Parse(Console.ReadLine());
 
-            Console.Write("Digite o ano de Inicio da Série: ");
+            Console.Write("Digite o Ano de Início da Série: ");
             int entradaAno = int.Parse(Console.ReadLine());
 
-            Console.Write("Digite a Descrição da Seŕie: ");
+            Console.Write("Digite a Descrição da Série: ");
             string entradaDescricao = Console.ReadLine();
 
-            Series novaSerie = new Series(id: repositorio.ProximoId(), carros: (Carros)entradaCarro, 
-                                          titulo: entradaTitulo, descricao: entradaDescricao, ano: entradaAno);
+            Carros novaSerie = new Carros(id: repositorio.ProximoId(),
+                                              carros: (Modelos)entradaModelo,
+                                              preco: precoCarro,
+                                              ano: entradaAno,
+                                              descricao: entradaDescricao);
             
             repositorio.Insere(novaSerie);
         
             // INSERIR NO BANCO DE DADOS
-            banco.insereNoBanco(id: repositorio.ProximoId(), carros: (Carros)entradaCarro,
+            banco.insereNoBanco(id: repositorio.ProximoId(), carros: (Modelos)entradaModelo,
                                 descricao: entradaDescricao);
         
         }
@@ -153,5 +155,6 @@ namespace DIO.Series
             Console.WriteLine();
             return opcaoUsuario;
         }
+    
     }
 }

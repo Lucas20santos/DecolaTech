@@ -1,0 +1,88 @@
+{
+  "version": 3,
+  "targets": {
+    "net5.0": {
+      "AgenciaBancaria.Dominio/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/AgenciaBancaria.Dominio.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AgenciaBancaria.Dominio.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "AgenciaBancaria.Dominio/1.0.0": {
+      "type": "project",
+      "path": "../AgenciaBancaria.Dominio/AgenciaBancaria.Dominio.csproj",
+      "msbuildProject": "../AgenciaBancaria.Dominio/AgenciaBancaria.Dominio.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net5.0": [
+      "AgenciaBancaria.Dominio >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "/home/luca/.nuget/packages/": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "/home/luca/Documentos/Github/DecolaTech/dominioPOO/AgenciaBancaria.App/AgenciaBancaria.App.csproj",
+      "projectName": "AgenciaBancaria.App",
+      "projectPath": "/home/luca/Documentos/Github/DecolaTech/dominioPOO/AgenciaBancaria.App/AgenciaBancaria.App.csproj",
+      "packagesPath": "/home/luca/.nuget/packages/",
+      "outputPath": "/home/luca/Documentos/Github/DecolaTech/dominioPOO/AgenciaBancaria.App/obj/",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "/home/luca/.nuget/NuGet/NuGet.Config"
+      ],
+      "originalTargetFrameworks": [
+        "net5.0"
+      ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "projectReferences": {
+            "/home/luca/Documentos/Github/DecolaTech/dominioPOO/AgenciaBancaria.Dominio/AgenciaBancaria.Dominio.csproj": {
+              "projectPath": "/home/luca/Documentos/Github/DecolaTech/dominioPOO/AgenciaBancaria.Dominio/AgenciaBancaria.Dominio.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net5.0": {
+        "targetAlias": "net5.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.401/RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

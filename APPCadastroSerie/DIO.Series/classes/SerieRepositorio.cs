@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using DIO.Series.interfaces;
 
-namespace DIO.Carros
+namespace DIO.Series   // Continuo DIO.Series o nome do namespaces
 {
     public class SerieRepositorio : IRepositorio<Carros>
     {

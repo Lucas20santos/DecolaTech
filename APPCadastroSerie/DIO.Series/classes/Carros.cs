@@ -12,7 +12,7 @@ namespace DIO.Series
         private bool Excluido { get; set; }
         
         // método construtor
-        public Carros(int id, Modelos carros, string descricao, int ano, float preco)
+        public Carros(int id, Modelos carros, float preco, int ano, string descricao)
         {
             this.Id = id;
             this.modelos = carros;
